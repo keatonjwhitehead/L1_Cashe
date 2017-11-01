@@ -17,11 +17,18 @@ id int PRIMARY KEY,
 locat_lat int NOT NULL,
 locat_long int NOT NULL,
 points int CHECK (points > 0),
+<<<<<<< HEAD
 hintname varchar(20) NOT NULL,
 user_id_creator int REFERENCES User (id),
 treasure_id int REFERENCES Treasure (id),
 CONSTRAINT unique_hint UNIQUE (hintname)
 );
+=======
+name varchar(20) NOT NULL,
+user_id_creator int REFERENCES User (id),
+treasure_id int REFERENCES Treasure (id)
+)
+>>>>>>> 0aa0efeaf5bfeb0c2ae28b178472f2ab8537a73e
 
 CREATE TABLE Treasure
 (
@@ -30,6 +37,12 @@ treasurename varchar(20) NOT NULL,
 locat_long int NOT NULL,
 locat_lat int NOT NULL,
 points int CHECK (points > 0),
+<<<<<<< HEAD
 user_id_creator int REFERENCES User (id),
 CONSTRAINT unique_treasure UNIQUE (treasurename)
 );
+=======
+user_id_creator int REFERENCES user (id) NOT NULL,
+user_id_solver int REFERENCES user (id)
+)
+>>>>>>> 0aa0efeaf5bfeb0c2ae28b178472f2ab8537a73e
