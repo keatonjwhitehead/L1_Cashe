@@ -17,9 +17,9 @@ id int PRIMARY KEY,
 locat_lat int NOT NULL,
 locat_long int NOT NULL,
 points int CHECK (points > 0),
-hint_name varchar(20) NOT NULL,
-#id of trea
-creator_user int REFERENCES User (id)
+name varchar(20) NOT NULL,
+user_id_creator int REFERENCES User (id),
+treasure_id int REFERENCES Treasure (id)
 )
 
 CREATE TABLE Treasure
@@ -28,6 +28,6 @@ id int PRIMARY KEY,
 locat_long int NOT NULL,
 locat_lat int NOT NULL,
 points int CHECK (points > 0),
-creator_user int REFERENCES user (id) NOT NULL,
-solved_user int REFERENCES user (id),
+user_id_creator int REFERENCES user (id) NOT NULL,
+user_id_solver int REFERENCES user (id)
 )
