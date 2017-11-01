@@ -4,9 +4,9 @@
 CREATE TABLE User
 (
 id int PRIMARY KEY, #number automatically assigned to each user
-username varchar(20), NOT NULL #username
-password varchar(20), NOT NULL #password given to each user
-passworddigest varchar(20), NOT NULL #look back at it
+username varchar(20) NOT NULL, #username
+password varchar(20) NOT NULL, #password given to each user
+passworddigest varchar(20) NOT NULL, #look back at it
 points int CHECK (points > 0), #always have positive points called a <<check constraint>> btw
 CONSTRAINT unique_user UNIQUE (username) #users cant have the same username
 );
