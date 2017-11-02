@@ -14,10 +14,10 @@ CONSTRAINT unique_user UNIQUE (username) #users cant have the same username
 CREATE TABLE Hints
 (
 id int PRIMARY KEY,
+hintname varchar(20) NOT NULL,
 locat_lat int NOT NULL,
 locat_long int NOT NULL,
 points int CHECK (points > 0),
-hintname varchar(20) NOT NULL,
 user_id_creator int REFERENCES User (id),
 treasure_id int REFERENCES Treasure (id),
 CONSTRAINT unique_hint UNIQUE (hintname)
@@ -27,8 +27,8 @@ CREATE TABLE Treasure
 (
 id int PRIMARY KEY,
 treasurename varchar(20) NOT NULL,
-locat_long int NOT NULL,
 locat_lat int NOT NULL,
+locat_long int NOT NULL,
 points int CHECK (points > 0),
 user_id_creator int REFERENCES User (id),
 CONSTRAINT unique_treasure UNIQUE (treasurename)
