@@ -27,8 +27,8 @@ CREATE TABLE Treasure
 (
 id int PRIMARY KEY,
 treasurename varchar(20) NOT NULL,
-locat_lat int NOT NULL,
 locat_long int NOT NULL,
+locat_lat int NOT NULL,
 points int CHECK (points > 0),
 user_id_creator int REFERENCES User (id),
 CONSTRAINT unique_treasure UNIQUE (treasurename)
