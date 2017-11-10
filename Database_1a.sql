@@ -20,7 +20,7 @@ locat_long int NOT NULL,
 points int CHECK (points > 0),
 user_id_creator int REFERENCES User (id),
 treasure_id int REFERENCES Treasure (id),
-CONSTRAINT unique_hint UNIQUE (hintname)
+CONSTRAINT unique_hint UNIQUE (hintname)	
 );
 
 CREATE TABLE Treasure
@@ -33,3 +33,11 @@ points int CHECK (points > 0),
 user_id_creator int REFERENCES User (id),
 CONSTRAINT unique_treasure UNIQUE (treasurename)
 );
+
+CREATE TABLE History
+(
+	id int PRIMARY KEY,
+	user_id_solver REFERENCES User (id),
+	treasure_id int REFERENCES Treasure (id),
+	hint_id int REFERENCES Hint (id)
+)
