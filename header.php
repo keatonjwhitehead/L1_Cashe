@@ -59,14 +59,12 @@ function myHeader($title){
 			background-color:#fff;
 			height:100%;
 		}
-
 		/* Style for footer. Background color is gray, black text and padding */
 		footer {
 			background-color:#fff;
 			color:black;
 			padding:15px;
 		}
-
 		/* This is for small screens. Height is set to 'auto' for .sidenav and grid */
 		@media screen and (max-width:767px) {
 			.sidenav {
