@@ -1,8 +1,6 @@
-Project Proposal
-Team Name: 
-L1 Cache 
-Members: 
-Blake Biskner, Jason Lubrano, Linda Palacios Rivera, Suyog Soti, Keaton Whitehead
+Project Proposal  
+Team Name: L1 Cache   
+Members: Blake Biskner, Jason Lubrano, Linda Palacios Rivera, Suyog Soti, Keaton Whitehead
 
 Description:
 Cache Me if You Can is a social application for CU students. Specifically, this browser-based game incorporates elements of GroundSpeak’s geocaching model to get students collaborating in a campus-wide scavenger hunt. Working alone or with peers, students will go to different waypoints placed throughout the university and solve puzzles and/or complete challenges in order to discover the location of the next marker. In particular, upon arriving at a predetermined gps location, information regarding the placement of the next marker will be downloaded to the user’s phone via our web page; this hint may be in the form of a puzzle or a challenge the player must complete.
