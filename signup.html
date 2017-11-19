@@ -1,0 +1,113 @@
+<!-- 
+	Team: L1_Cache
+	Website Name: Catch Me If You Can
+	Page: Sign Up
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Catch Me If You Can</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- jQuery, Bootstrap JS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+	<style>
+		/* Style for top navigatin bar containing links to Log In, and Sign Up */ 
+		.navbar {
+			margin-bottom:0;
+			border-radius:0;
+		}
+				
+		/* For content*/
+		.row.content {height:515px}
+    
+		/* Style for left naviagation bar. Background color is gray and height is 100%. Contains links to Rules and Feedback */
+		.sidenav {
+			padding-top:3%;
+			padding-left:4%;
+			background-color:#fff;
+			height:100%;
+		}
+    
+		/* Style for footer. Background color is gray, black text and padding */
+		footer {
+			background-color:#fff;
+			color:black;
+			padding:15px;
+		}
+    
+		/* This is for small screens. Height is set to 'auto' for .sidenav and grid */
+		@media screen and (max-width:767px) {
+			.sidenav {
+				height:auto;
+				padding:15px;
+			}
+			.row.content {height:auto;} 
+		}
+	</style>
+</head>
+<body>
+
+	<!-- Top navigation bar -->
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>                        
+				</button>
+				<!-- Logo
+				<a class="navbar-brand" href="#"><img src="" class="img-rounded" width="43" height="33"></img></a>
+				-->
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Log In</a></li>
+					<li class="active"><a href="#">Sign Up</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+	<!-- Title -->
+	<div class="jumbotron" style="background:#13c6ba; color:white">
+		<div class="container text-center">
+			<h1>Catch Me If You Can</h1>      
+		</div>
+	</div>
+
+	<!-- Content -->
+	<div class="container-fluid">    
+		<div class="row content">
+			<div class="col-sm-2 sidenav">
+				<p><a href="#" style="color:blue">Rules</a></p>
+				<p><a href="#" style="color:blue">Feedback</a></p>
+			</div>
+			<div class="col-sm-8"> 
+				<center>
+					<h1 style="margin-bottom:8%">Sign Up!</h1>
+				</center>
+				<form>
+					<div class="col-lg-4 col-lg-offset-4">
+						<label for="email">Email:</label>
+						<input type="email" class="form-control" id="email" placeholder="Enter email" name="email"  style="margin-bottom:4%">
+						<label for="pwd">Password:</label>
+						<input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd" style="margin-bottom:4%">
+						<button type="submit" class="btn btn-default">Submit</button>	
+					</div>						
+				</form>	
+			</div>
+		</div>
+	</div>
+	
+	<!-- Footer -->
+	<footer class="container-fluid text-center">
+		<p>&copy; Copyright <a href="#" style="color:blue">CMIYC</a> &#124; <a href="#" style="color:blue">Terms of Use</a> &#124; <a href="#" style="color:blue">Privacy Policy</a></p>
+	</footer>
+
+</body>
+</html>
