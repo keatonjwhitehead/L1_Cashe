@@ -19,14 +19,13 @@ include 'connection.php';
 
 // We will always establish a connection here with the database so the connection can be used in the function.php
 // and can be closed in the footer.php
-$link = @mysqli_connect($server, $user, $passwd, $dbName);
-if (!$link) {
+$link = new mysqli($server, $user, $passwd, $dbName);
+
+if ($link->connect_errno) {
 	echo "Error: Unable to connect to MySQL." . PHP_EOL;
-	echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
-	echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
+	echo "Debugging errno: " . $link->connect_errno() . PHP_EOL;
 	exit;
 }
-
 
 // This is just some extra functions do stuff like add user or update user
 include 'functions.php';

@@ -1,5 +1,5 @@
 <?php
 
-function createUser($email, $password){
+function createUser($link, $email, $password){
 	echo "$email, $password";
 }
