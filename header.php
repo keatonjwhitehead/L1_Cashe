@@ -96,7 +96,7 @@ function myHeader($title){
 <?php
 	// This is for the menu, depending on the parameter
 	$pages = ["Home", "Sign Up", "Log In"];
-	$links = ["./", "signup.php", "/login.php"];
+	$links = ["/", "/signup.php", "/login.php"];
 	for ($i=0; $i < count($pages); $i++) {
 		if ($title == $pages[$i]) {
 			echo "<li class='active'><a href='#'>$title</a></li>";
