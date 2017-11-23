@@ -37,11 +37,15 @@ function loginUser($link, $username, $password) {
 		// Log in this user using cookies..
 		// if localhost, does not have to be https else it does
 		$domain = ($_SERVER['HTTP_HOST'] != 'localhost') ? $_SERVER['HTTP_HOST'] : false;
-		setcookie('user', $username, time()+60*60*24*365, '/', $domain, true);
+		/* FIXME: setcookie the way it is done right now might be unsafe...unsure */
+		/* setcookie('user', $username, time()+60*60*24*365, '/', $domain, true); */
+		setcookie('user', $username);
+		$stmt->close();
+		return true;
 	} else {
-		echo "Either the username or the password is incorrect!";
+		$stmt->close();
+		return false;
 	}
-	$stmt->close();
 }
 
 
