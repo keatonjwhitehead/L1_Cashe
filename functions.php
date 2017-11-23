@@ -1,7 +1,4 @@
 <?php
-
-
-
 /*
  *
  * The following function are about creating users, and modifying the user's point levels
@@ -34,12 +31,7 @@ function loginUser($link, $username, $password) {
 	$stmt->execute();
 	$stmt->bind_result($username, $hash);
 	if ($stmt->fetch() && password_verify($password, $hash)) {
-		// Log in this user using cookies..
-		// if localhost, does not have to be https else it does
-		$domain = ($_SERVER['HTTP_HOST'] != 'localhost') ? $_SERVER['HTTP_HOST'] : false;
-		/* FIXME: setcookie the way it is done right now might be unsafe...unsure */
-		/* setcookie('user', $username, time()+60*60*24*365, '/', $domain, true); */
-		setcookie('user', $username);
+		$_SESSION['user'] = $username;
 		$stmt->close();
 		return true;
 	} else {
@@ -52,11 +44,13 @@ function loginUser($link, $username, $password) {
 function currentUser() {
 	// Returns the current user or nil if no one is logged in
 	// does this by fetching the cookie and return the id of the USER
-	return $_COOKIE['user'];
+	return $_SESSION['user'];
 }
 
 function logoutUser() {
 	// Log out the current user or don't do anything at all
-	unset($_COOKIE['user']);
-	setcookie('user', null, -1, '/');
+	unset($_SESSION['username']);
+	session_destroy();
+	header("Location: login.php");
+	exit;
 }

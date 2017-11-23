@@ -4,7 +4,7 @@
 	Page: Sign Up
 -->
 <?php
-
+session_start();
 /*
  *
  * Connection.php has your connection info and should never be pushed to the remote/public server
@@ -99,8 +99,8 @@ function myHeader($title){
 	$links = [];
 	// If already logged in we don't want log in and stuff like that to show up
 	if (currentUser()) {
-		$pages = ["Home", currentUser()];
-		$links = ["/", "#"];
+		$pages = ["Home", "<div id='logout'>Log Out " . currentUser() . "</div>"];
+		$links = ["/", "/logout.php"];
 	} else {
 		$pages = ["Home", "Sign Up", "Log In"];
 		$links = ["/", "/signup.php", "/login.php"];
