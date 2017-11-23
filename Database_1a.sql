@@ -3,15 +3,15 @@
 
 CREATE TABLE User (
 	id int PRIMARY KEY, #number automatically assigned to each user
-	username varchar(20) NOT NULL, #username
-	password varchar(20) NOT NULL, #password given to each user
+	username varchar(100) NOT NULL, #username
+	password varchar(100) NOT NULL, #password given to each user
 	points int CHECK (points > 0), #always have positive points called a <<check constraint>> btw
 	CONSTRAINT unique_user UNIQUE (username) #users cant have the same username
 );
 
 CREATE TABLE Hint (
 	id int PRIMARY KEY,
-	hintname varchar(20) NOT NULL,
+	hintname varchar(100) NOT NULL,
 	locat_lat int NOT NULL,
 	locat_long int NOT NULL,
 	points int CHECK (points > 0),
@@ -22,7 +22,7 @@ CREATE TABLE Hint (
 
 CREATE TABLE Treasure (
 	id int PRIMARY KEY,
-	treasurename varchar(20) NOT NULL,
+	treasurename varchar(100) NOT NULL,
 	locat_long int NOT NULL,
 	locat_lat int NOT NULL,
 	points int CHECK (points > 0),
