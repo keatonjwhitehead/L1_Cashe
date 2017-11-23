@@ -95,8 +95,16 @@ function myHeader($title){
 
 <?php
 	// This is for the menu, depending on the parameter
-	$pages = ["Home", "Sign Up", "Log In"];
-	$links = ["/", "/signup.php", "/login.php"];
+	$pages = [];
+	$links = [];
+	// If already logged in we don't want log in and stuff like that to show up
+	if (currentUser()) {
+		$pages = ["Home", currentUser()];
+		$links = ["/", "#"];
+	} else {
+		$pages = ["Home", "Sign Up", "Log In"];
+		$links = ["/", "/signup.php", "/login.php"];
+	}
 	for ($i=0; $i < count($pages); $i++) {
 		if ($title == $pages[$i]) {
 			echo "<li class='active'><a href='#'>$title</a></li>";

@@ -16,28 +16,28 @@ function createUser($link, $username, $password){
 	$stmt->fetch();
 	$stmt->close();
 	if ($existing) {
-		echo "<h1>This already exists!</h1>";
+		return false;
 	} else {
 		$stmt = $link->prepare("Insert INTO User (username, password, points) Values (?, ?, 0)");
 		// Storing the hash of the password... never store the password as plain text
 		$stmt->bind_param("ss", $username, password_hash("$password", PASSWORD_DEFAULT));
 		$stmt->execute();
-		echo "User created successfully!";
+		return true;
 	}
 }
 
 
-function loginUser($username, $password) {
+function loginUser($link, $username, $password) {
 	// log in a user function
-	$stmt = $link->prepare("Select id,password from User where User.username=?");
+	$stmt = $link->prepare("Select username,password from User where User.username=?");
 	$stmt->bind_param("s", $username);
 	$stmt->execute();
-	$stmt->bind_result($id, $hash);
+	$stmt->bind_result($username, $hash);
 	if ($stmt->fetch() && password_verify($password, $hash)) {
 		// Log in this user using cookies..
 		// if localhost, does not have to be https else it does
 		$domain = ($_SERVER['HTTP_HOST'] != 'localhost') ? $_SERVER['HTTP_HOST'] : false;
-		setcookie('user', $id, time()+60*60*24*365, '/', $domain, true);
+		setcookie('user', $username, time()+60*60*24*365, '/', $domain, true);
 	} else {
 		echo "Either the username or the password is incorrect!";
 	}
