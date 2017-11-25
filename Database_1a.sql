@@ -21,12 +21,13 @@ CREATE TABLE Hint (
 );
 
 CREATE TABLE Treasure (
-	id int PRIMARY KEY,
+	id int NOT NULL auto_increment PRIMARY KEY,
 	treasurename varchar(100) NOT NULL,
-	locat_long int NOT NULL,
-	locat_lat int NOT NULL,
+	locat_long float NOT NULL,
+	locat_lat float NOT NULL,
 	points int CHECK (points > 0),
-	user_id_creator int REFERENCES User (id),
+	creator_username varchar(100) NOT NULL,
+	solver_username varchar(100),
 	CONSTRAINT unique_treasure UNIQUE (treasurename)
 );
 

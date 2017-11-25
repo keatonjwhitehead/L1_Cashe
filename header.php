@@ -99,8 +99,8 @@ function myHeader($title){
 	$links = [];
 	// If already logged in we don't want log in and stuff like that to show up
 	if (currentUser()) {
-		$pages = ["Home", "<div id='logout'>Log Out " . currentUser() . "</div>"];
-		$links = ["/", "/logout.php"];
+		$pages = ["Home", currentUser(), "Log out"];
+		$links = ["/", "/user.php","/logout.php"];
 	} else {
 		$pages = ["Home", "Sign Up", "Log In"];
 		$links = ["/", "/signup.php", "/login.php"];

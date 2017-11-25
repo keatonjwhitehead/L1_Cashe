@@ -23,7 +23,6 @@ function createUser($link, $username, $password){
 	}
 }
 
-
 function loginUser($link, $username, $password) {
 	// log in a user function
 	$stmt = $link->prepare("Select username,password from User where User.username=?");
@@ -53,4 +52,17 @@ function logoutUser() {
 	session_destroy();
 	header("Location: login.php");
 	exit;
+}
+
+function userObjects($link, $table)
+{
+	$username = currentUser();
+	if (!$username) {
+		header("Location: /");
+		exit;
+	}
+	// Its okay to not use sql binding here becauser we are not taking user inputs
+	// If we wanted to be totally save, we would be using sql bindings right here
+	$query = $link->query("Select * from $table where creator_username='$username'");
+	return $query;
 }
