@@ -12,10 +12,11 @@ CREATE TABLE User (
 CREATE TABLE Hint (
 	id int PRIMARY KEY,
 	hintname varchar(100) NOT NULL,
-	locat_lat int NOT NULL,
-	locat_long int NOT NULL,
+	locat_lat double NOT NULL,
+	locat_long double NOT NULL,
 	points int CHECK (points > 0),
-	user_id_creator int REFERENCES User (id),
+	creator_username varchar(100) NOT NULL,
+	next_hint int,
 	treasure_id int REFERENCES Treasure (id),
 	CONSTRAINT unique_hint UNIQUE (hintname)
 );

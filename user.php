@@ -6,9 +6,10 @@ include 'treasure/treasureFunctions.php';
 
 if ($_POST['treasure-id-i']) {
 	// update treasure using sql bindings
-	updateObjects($link, "Treasure", $_POST);
+	updateObject($link, "Treasure", $_POST);
 } elseif ($_POST['treasure-treasurename-s'] && $_POST['treasure-points-i']) {
 	// create new treasure
+	createObject($link, "Treasure", $_POST);
 }
 
 
@@ -29,6 +30,7 @@ if ($result->num_rows > 0) {
 	while($row = $result->fetch_assoc()) {
 		treasureForm($row);
 	}
+	treasureForm(NULL);
 }
 ?>
 

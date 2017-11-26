@@ -29,6 +29,8 @@ function treasureForm($row)
 				<input type="text" class="form-control" value="<?php echo $row['locat_long'];?>" name="treasure-locat_long-d"  style="margin-bottom:4%">
 				<label for="treasure-points-i">Rewards:</label>
 				<input type="text" class="form-control" value="<?php echo $row['points'];?>" name="treasure-points-i"  style="margin-bottom:4%">
+				<label for="treasure-solver_username-s">Solver:</label>
+				<input type="text" class="form-control" placeholder="No one has solved the Treasure yet..." value="<?php echo $row['solver_username'];?>" style="margin-bottom:4%" readonly>
 				<center>
 					<button type="submit" class="btn btn-default" style="background:#69f0ae"><strong>Update</strong></button>
 				</center>
@@ -39,16 +41,33 @@ function treasureForm($row)
 ?>
 	<form action="/user.php" method="post" style="margin-top: 50px;">
 		<div class="col-sm-4 col-sm-offset-4">
+			<h4>Create New Treasure</h4>
 			<div>Please not that the location of your treasure will be where you are at the moment you submit this form!</div>
 			<label for="treasure-treasurename-s">Treasure Name:</label>
 			<input type="text" class="form-control" name="treasure-treasurename-s"  style="margin-bottom:4%">
 			<label for="treasure-points-i">Rewards:</label>
 			<input type="text" class="form-control" name="treasure-points-i"  style="margin-bottom:4%">
+			<label for="treasure-locat_long-d">Longitude:</label>
+			<input type="text" class="form-control" name="treasure-locat_long-d" id="locat_long" style="margin-bottom:4%" readonly>
+			<label for="treasure-locat_lat-d">Latitude:</label>
+			<input type="text" class="form-control" name="treasure-locat_lat-d" id="locat_lat" style="margin-bottom:4%" readonly>
 			<center>
 				<button type="submit" class="btn btn-default" style="background:#69f0ae"><strong>Update</strong></button>
 			</center>
 		</div>
 	</form>
+	<script type="text/javascript">
+		$(document).ready(() => {
+			navigator.geolocation.getCurrentPosition((position, err) => {
+				if (err) {
+					console.log("Please enable location services or go on a machine with GPS")
+					console.log(err)
+				}
+				$("input#locat_long").val(position.coords.longitude)
+				$("input#locat_lat").val(position.coords.latitude)				
+			})
+		})
+	</script>
 <?php
 	}
 	/* echo "<div style='width: 100px; height: 300px;'></div>"; */
