@@ -66,3 +66,33 @@ function userObjects($link, $table)
 	$query = $link->query("Select * from $table where creator_username='$username'");
 	return $query;
 }
+
+function updateObjects($link, $table, $object)
+{
+	// update the table with the rows
+	// the client will never type the table to upload so its okey not to bind that
+	$statement = "Update $table Set ";
+	$id = 0;
+	$types = "";
+	$id_place = "";
+	foreach ($object as $key => $value) {
+		// doing key without bind is ok because users do not input the key
+		$key_split = explode("-", "$key");
+		$keyMiddle = $key_split[1];
+		if ($keyMiddle == "id") {
+			$id = $value;
+			$id_place = $key;
+			continue;
+		}
+		$statement .= "$keyMiddle=?, ";
+		$types .= $key_split[2];
+	}
+	$statement = rtrim($statement,', ');
+	$statement .= " where id=$id";
+	$stmt = $link->prepare($statement);
+	$object[$id_place] = $types;
+	call_user_func_array(array($stmt, 'bind_param'), $object);
+	if (!$stmt->execute()) {
+		echo "<h3>The $table could not be updated!</h3>";
+	}
+}

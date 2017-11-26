@@ -19,16 +19,16 @@ function treasureForm($row)
 ?>
 		<form action="/user.php" method="post">
 			<div class="col-sm-4 col-sm-offset-4">
-				<label for="treasure-id">Treasure ID:</label>
-				<input type="text" class="form-control" value="<?php echo $row['id'];?>" readonly name="treasure-id"  style="margin-bottom:4%">
-				<label for="treasure-treasurename">Treasure Name:</label>
-				<input type="text" class="form-control" value="<?php echo $row['treasurename'];?>" name="treasure-treasurename"  style="margin-bottom:4%">
-				<label for="treasure-locat_lat">Latitude (Please do not edit this unless you are sure of what you are doing!):</label>
-				<input type="text" class="form-control" value="<?php echo $row['locat_lat'];?>" name="treasure-locat_lat"  style="margin-bottom:4%">
-				<label for="treasure-locat_long">Longitude (Please do not edit this unless you are sure of what you are doing!):</label>
-				<input type="text" class="form-control" value="<?php echo $row['locat_long'];?>" name="treasure-locat_long"  style="margin-bottom:4%">
-				<label for="treasure-points">Rewards:</label>
-				<input type="text" class="form-control" value="<?php echo $row['points'];?>" name="treasure-points"  style="margin-bottom:4%">
+				<label for="treasure-id-i">Treasure ID:</label>
+				<input type="text" class="form-control" value="<?php echo $row['id'];?>" readonly name="treasure-id-i"  style="margin-bottom:4%">
+				<label for="treasure-treasurename-s">Treasure Name:</label>
+				<input type="text" class="form-control" value="<?php echo $row['treasurename'];?>" name="treasure-treasurename-s"  style="margin-bottom:4%">
+				<label for="treasure-locat_lat-d">Latitude (Please do not edit this unless you are sure of what you are doing!):</label>
+				<input type="text" class="form-control" value="<?php echo $row['locat_lat'];?>" name="treasure-locat_lat-d"  style="margin-bottom:4%">
+				<label for="treasure-locat_long-d">Longitude (Please do not edit this unless you are sure of what you are doing!):</label>
+				<input type="text" class="form-control" value="<?php echo $row['locat_long'];?>" name="treasure-locat_long-d"  style="margin-bottom:4%">
+				<label for="treasure-points-i">Rewards:</label>
+				<input type="text" class="form-control" value="<?php echo $row['points'];?>" name="treasure-points-i"  style="margin-bottom:4%">
 				<center>
 					<button type="submit" class="btn btn-default" style="background:#69f0ae"><strong>Update</strong></button>
 				</center>
@@ -40,10 +40,10 @@ function treasureForm($row)
 	<form action="/user.php" method="post" style="margin-top: 50px;">
 		<div class="col-sm-4 col-sm-offset-4">
 			<div>Please not that the location of your treasure will be where you are at the moment you submit this form!</div>
-			<label for="treasure-treasurename">Treasure Name:</label>
-			<input type="text" class="form-control" name="treasure-treasurename"  style="margin-bottom:4%">
-			<label for="treasure-points">Rewards:</label>
-			<input type="text" class="form-control" name="treasure-points"  style="margin-bottom:4%">
+			<label for="treasure-treasurename-s">Treasure Name:</label>
+			<input type="text" class="form-control" name="treasure-treasurename-s"  style="margin-bottom:4%">
+			<label for="treasure-points-i">Rewards:</label>
+			<input type="text" class="form-control" name="treasure-points-i"  style="margin-bottom:4%">
 			<center>
 				<button type="submit" class="btn btn-default" style="background:#69f0ae"><strong>Update</strong></button>
 			</center>

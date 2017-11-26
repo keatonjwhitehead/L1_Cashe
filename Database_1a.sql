@@ -23,8 +23,8 @@ CREATE TABLE Hint (
 CREATE TABLE Treasure (
 	id int NOT NULL auto_increment PRIMARY KEY,
 	treasurename varchar(100) NOT NULL,
-	locat_long float NOT NULL,
-	locat_lat float NOT NULL,
+	locat_long double NOT NULL,
+	locat_lat double NOT NULL,
 	points int CHECK (points > 0),
 	creator_username varchar(100) NOT NULL,
 	solver_username varchar(100),
