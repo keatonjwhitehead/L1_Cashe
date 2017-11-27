@@ -56,18 +56,6 @@ function treasureForm($row)
 			</center>
 		</div>
 	</form>
-	<script type="text/javascript">
-		$(document).ready(() => {
-			navigator.geolocation.getCurrentPosition((position, err) => {
-				if (err) {
-					console.log("Please enable location services or go on a machine with GPS")
-					console.log(err)
-				}
-				$("input#locat_long").val(position.coords.longitude)
-				$("input#locat_lat").val(position.coords.latitude)				
-			})
-		})
-	</script>
 <?php
 	}
 	/* echo "<div style='width: 100px; height: 300px;'></div>"; */
