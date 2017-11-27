@@ -6,3 +6,10 @@
 
 </body>
 </html>
+
+
+
+<?php
+mysqli_close($link);
+
+/* End of file footer.php */
