@@ -19,19 +19,17 @@ if ($_POST['treasure-id-i']) {
 <center>
 	<h1 class="byUser" id="hints" style="margin-bottom:8%">Hints</h1>
 </center>
-<?php
-$result = userObjects($link, "Treasure");
-if ($result->num_rows > 0) {
-?>
 <center>
 	<h1 class="byUser" id="hints" style="margin-bottom:8%">Treasure</h1>
 </center>
 <?php
+$result = userObjects($link, "Treasure");
+if ($result->num_rows > 0) {
 	while($row = $result->fetch_assoc()) {
 		treasureForm($row);
 	}
-	treasureForm(NULL);
 }
+treasureForm(NULL);
 ?>
 
 </div>
