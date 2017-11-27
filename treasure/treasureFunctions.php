@@ -48,9 +48,9 @@ function treasureForm($row)
 			<label for="treasure-points-i">Rewards:</label>
 			<input type="text" class="form-control" name="treasure-points-i"  style="margin-bottom:4%">
 			<label for="treasure-locat_long-d">Longitude:</label>
-			<input type="text" class="form-control" name="treasure-locat_long-d" id="locat_long" style="margin-bottom:4%" readonly>
+			<input type="text" class="form-control" name="treasure-locat_long-d" id="treasure-locat_long" style="margin-bottom:4%" readonly>
 			<label for="treasure-locat_lat-d">Latitude:</label>
-			<input type="text" class="form-control" name="treasure-locat_lat-d" id="locat_lat" style="margin-bottom:4%" readonly>
+			<input type="text" class="form-control" name="treasure-locat_lat-d" id="treasure-locat_lat" style="margin-bottom:4%" readonly>
 			<center>
 				<button type="submit" class="btn btn-default" style="background:#69f0ae"><strong>Update</strong></button>
 			</center>

@@ -3,6 +3,12 @@
 include "header.php";
 myHeader("Solve the Puzzle!");
 
+if (!currentUser()) {
+    header("Location: /");
+    exit;
+}
+
+
 ?>
 
 <div style="padding: 50px; width: 400px; background-color: #13c6ba; margin: auto; color: white; cursor: pointer;" id="solve-hints-treasure">

@@ -1,9 +1,7 @@
-<!--
-	Team: L1_Cache
-	Website Name: Catch Me If You Can
-	Page: Sign Up
--->
 <?php
+// 	Team: L1_Cache
+// 	Website Name: Catch Me If You Can
+// 	Page: Sign Up
 session_start();
 /*
  *

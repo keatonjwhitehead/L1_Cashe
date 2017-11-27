@@ -34,7 +34,7 @@ CREATE TABLE Treasure (
 
 CREATE TABLE History (
 	id int PRIMARY KEY,
-	user_id_solver int REFERENCES User (id),
+	solver_username varchar(100),
 	treasure_id int REFERENCES Treasure (id),
 	hint_id int REFERENCES Hint (id)
 );
