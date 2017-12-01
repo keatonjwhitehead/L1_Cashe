@@ -1,9 +1,7 @@
-<!--
-	Team: L1_Cache
-	Website Name: Catch Me If You Can
-	Page: Sign Up
--->
 <?php
+// 	Team: L1_Cache
+// 	Website Name: Catch Me If You Can
+// 	Page: Sign Up
 session_start();
 /*
  *
@@ -41,6 +39,7 @@ function myHeader($title){
 	<!-- jQuery, Bootstrap JS -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="js/script.js"></script>
 
 	<style>
 		/* Style for top navigatin bar containing links to Log In, and Sign Up */
@@ -99,8 +98,8 @@ function myHeader($title){
 	$links = [];
 	// If already logged in we don't want log in and stuff like that to show up
 	if (currentUser()) {
-		$pages = ["Home", "<div id='logout'>Log Out " . currentUser() . "</div>"];
-		$links = ["/", "/logout.php"];
+		$pages = ["Home", "Solve the Puzzle!", currentUser(), "Log out"];
+		$links = ["/", "/solve.php", "/user.php","/logout.php"];
 	} else {
 		$pages = ["Home", "Sign Up", "Log In"];
 		$links = ["/", "/signup.php", "/login.php"];

@@ -12,27 +12,29 @@ CREATE TABLE User (
 CREATE TABLE Hint (
 	id int PRIMARY KEY,
 	hintname varchar(100) NOT NULL,
-	locat_lat int NOT NULL,
-	locat_long int NOT NULL,
+	locat_lat double NOT NULL,
+	locat_long double NOT NULL,
 	points int CHECK (points > 0),
-	user_id_creator int REFERENCES User (id),
+	creator_username varchar(100) NOT NULL,
+	next_hint int,
 	treasure_id int REFERENCES Treasure (id),
 	CONSTRAINT unique_hint UNIQUE (hintname)
 );
 
 CREATE TABLE Treasure (
-	id int PRIMARY KEY,
+	id int NOT NULL auto_increment PRIMARY KEY,
 	treasurename varchar(100) NOT NULL,
-	locat_long int NOT NULL,
-	locat_lat int NOT NULL,
+	locat_long double NOT NULL,
+	locat_lat double NOT NULL,
 	points int CHECK (points > 0),
-	user_id_creator int REFERENCES User (id),
+	creator_username varchar(100) NOT NULL,
+	solver_username varchar(100),
 	CONSTRAINT unique_treasure UNIQUE (treasurename)
 );
 
 CREATE TABLE History (
 	id int PRIMARY KEY,
-	user_id_solver int REFERENCES User (id),
+	solver_username varchar(100),
 	treasure_id int REFERENCES Treasure (id),
 	hint_id int REFERENCES Hint (id)
 );
