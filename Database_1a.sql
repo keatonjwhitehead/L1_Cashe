@@ -1,8 +1,8 @@
 #Started by Jason Lubrano
 #30 October 2017
 
-DROP database IF EXISTS l1_cashe;
-CREATE database l1_cashe;
+DROP database IF EXISTS heroku_94dcaf97d2ccea3;
+CREATE database heroku_94dcaf97d2ccea3;
 use l1_cashe;
 CREATE TABLE User (
 	id int PRIMARY KEY, #number automatically assigned to each user
