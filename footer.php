@@ -10,6 +10,6 @@
 
 
 <?php
-mysqli_close($link);
+$link->close();
 
 /* End of file footer.php */
