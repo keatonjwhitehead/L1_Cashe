@@ -3,6 +3,7 @@
 
 DROP database IF EXISTS heroku_94dcaf97d2ccea3;
 CREATE database heroku_94dcaf97d2ccea3;
+use heroku_94dcaf97d2ccea3;
 CREATE TABLE User (
 	id int PRIMARY KEY, #number automatically assigned to each user
 	username varchar(100) NOT NULL, #username
