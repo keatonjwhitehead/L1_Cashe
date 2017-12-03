@@ -1,1 +1,18 @@
 ( ͡° ͜ʖ ͡°) 
+
+
+processes to test:
+
+create a first user
+1st user log in
+1st user create hint
+1st user create treasure
+1st user log out
+create second user
+2nd user log in
+2nd user solve hint
+2nd user solve treasure
+2nd user log out
+
+also look at points, history, and any other page from the user
+vs non users page.
