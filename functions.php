@@ -11,14 +11,21 @@ function createUser($link, $username, $password){
 	$stmt->execute();
 	$stmt->bind_result($existing);
 	$stmt->fetch();
-	$stmt->close();
 	if ($existing) {
+		$stmt->close();
 		return false;
 	} else {
+		$stmt->close();
 		$stmt = $link->prepare("Insert INTO User (username, password, points) Values (?, ?, 0)");
 		// Storing the hash of the password... never store the password as plain text
 		$stmt->bind_param("ss", $username, password_hash("$password", PASSWORD_DEFAULT));
-		$stmt->execute();
+		if (!$stmt->execute()) {
+			echo "$username could not be created because the sql statement could not be executed! <br />";
+			echo "$stmt->error <br />";
+			$stmt->close();
+			return false;
+		}
+		$stmt->close();
 		return true;
 	}
 }

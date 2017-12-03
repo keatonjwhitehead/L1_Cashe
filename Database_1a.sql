@@ -5,7 +5,7 @@ DROP database IF EXISTS heroku_94dcaf97d2ccea3;
 CREATE database heroku_94dcaf97d2ccea3;
 use heroku_94dcaf97d2ccea3;
 CREATE TABLE User (
-	id int PRIMARY KEY, #number automatically assigned to each user
+	id int NOT NULL auto_increment PRIMARY KEY,
 	username varchar(100) NOT NULL, #username
 	password varchar(100) NOT NULL, #password given to each user
 	points int CHECK (points > 0), #always have positive points called a <<check constraint>> btw
