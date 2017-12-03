@@ -23,12 +23,16 @@ function treasureForm($row)
 				<input type="text" class="form-control" value="<?php echo $row['id'];?>" readonly name="treasure-id-i"  style="margin-bottom:4%">
 				<label for="treasure-treasurename-s">Treasure Name:</label>
 				<input type="text" class="form-control" value="<?php echo $row['treasurename'];?>" name="treasure-treasurename-s"  style="margin-bottom:4%">
+				<label for="treasure-question-s">Question:</label>
+				<input type="text" class="form-control" value="<?php echo $row['question'];?>" name="treasure-question-s"  style="margin-bottom:4%">
+				<label for="treasure-answer-s">Answer:</label>
+				<input type="text" class="form-control" value="<?php echo $row['answer'];?>" name="treasure-answer-s"  style="margin-bottom:4%">
 				<label for="treasure-locat_lat-d">Latitude (Please do not edit this unless you are sure of what you are doing!):</label>
 				<input type="text" class="form-control" value="<?php echo $row['locat_lat'];?>" name="treasure-locat_lat-d"  style="margin-bottom:4%">
 				<label for="treasure-locat_long-d">Longitude (Please do not edit this unless you are sure of what you are doing!):</label>
 				<input type="text" class="form-control" value="<?php echo $row['locat_long'];?>" name="treasure-locat_long-d"  style="margin-bottom:4%">
 				<label for="treasure-points-i">Rewards:</label>
-				<input type="text" class="form-control" value="<?php echo $row['points'];?>" name="treasure-points-i"  style="margin-bottom:4%">
+				<input type="number" class="form-control" value="<?php echo $row['points'];?>" name="treasure-points-i"  style="margin-bottom:4%">
 				<label for="treasure-solver_username-s">Solver:</label>
 				<input type="text" class="form-control" placeholder="No one has solved the Treasure yet..." value="<?php echo $row['solver_username'];?>" style="margin-bottom:4%" readonly>
 				<center>
@@ -45,8 +49,12 @@ function treasureForm($row)
 			<div>Please not that the location of your treasure will be where you are at the moment you submit this form!</div>
 			<label for="treasure-treasurename-s">Treasure Name:</label>
 			<input type="text" class="form-control" name="treasure-treasurename-s"  style="margin-bottom:4%">
+			<label for="treasure-question-s">Question:</label>
+			<input type="text" class="form-control" name="treasure-question-s"  style="margin-bottom:4%">
+			<label for="treasure-answer-s">Answer:</label>
+			<input type="text" class="form-control" name="treasure-answer-s"  style="margin-bottom:4%">
 			<label for="treasure-points-i">Rewards:</label>
-			<input type="text" class="form-control" name="treasure-points-i"  style="margin-bottom:4%">
+			<input type="number" class="form-control" name="treasure-points-i"  style="margin-bottom:4%">
 			<label for="treasure-locat_long-d">Longitude:</label>
 			<input type="text" class="form-control" name="treasure-locat_long-d" id="treasure-locat_long" style="margin-bottom:4%" readonly>
 			<label for="treasure-locat_lat-d">Latitude:</label>

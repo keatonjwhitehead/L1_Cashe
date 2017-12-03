@@ -1,5 +1,5 @@
 $(document).ready(() => {
-    navigator.geolocation.getCurrentPosition((position, err) => {
+    navigator.geolocation.getCurrentPosition((position, err, {desiredAccuracy:20, maxWait:15000}) => {
 
         // if browser does not support location, let user know
         if (err) {

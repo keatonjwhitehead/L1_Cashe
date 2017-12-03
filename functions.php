@@ -54,8 +54,7 @@ function logoutUser() {
 	exit;
 }
 
-function userObjects($link, $table)
-{
+function userObjects($link, $table) {
 	$username = currentUser();
 	if (!$username) {
 		header("Location: /");
@@ -74,8 +73,7 @@ function userObjects($link, $table)
  * $table name of the table
  * $object is a dictionary arr with table-collumName-valTypeLetter as the keys
  */
-function updateObject($link, $table, $object)
-{
+function updateObject($link, $table, $object) {
 	// How this works is really funny
 	// update the table with the rows
 	// the client will never type the table to upload so its okey not to bind that
@@ -103,6 +101,7 @@ function updateObject($link, $table, $object)
 	if (!$stmt->execute()) {
 		echo "<h3>The $table could not be updated!</h3>";
 	}
+	$stmt->close();
 }
 
 function createObject($link, $table, $object){
@@ -136,8 +135,9 @@ function createObject($link, $table, $object){
 	array_unshift($object, $types);
 	call_user_func_array(array($stmt, 'bind_param'), $object);
 	if (!$stmt->execute()) {
-		echo "<h3>The $table could not be updated!</h3>";
+		echo "<h3>The $table could not be created!</h3>";
 	}
+	$stmt->close();
 }
 
 // for later when we want to make sure that we calculated the distance between two long and lat points
@@ -157,4 +157,4 @@ function distance($lat1, $lon1, $lat2, $lon2, $unit) {
 		return $miles;
 	}
 }
-	
+

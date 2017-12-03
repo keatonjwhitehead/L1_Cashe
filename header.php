@@ -13,7 +13,11 @@ session_start();
  * $dbName = "l1_cashe";
  *
  * */
-include 'connection.php';
+/* include 'connection.php'; */
+$user = "bb86b6fc52433e";
+$passwd = "e9e79319";
+$dbName = "heroku_94dcaf97d2ccea3";
+$server = "us-cdbr-iron-east-05.cleardb.net";
 
 // We will always establish a connection here with the database so the connection can be used in the function.php
 // and can be closed in the footer.php
