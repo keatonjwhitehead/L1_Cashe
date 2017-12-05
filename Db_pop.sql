@@ -71,7 +71,6 @@ CREATE TABLE `History` (
 
 LOCK TABLES `History` WRITE;
 /*!40000 ALTER TABLE `History` DISABLE KEYS */;
-INSERT INTO `History` VALUES (1,'suso4455@colorado.edu',NULL,2);
 /*!40000 ALTER TABLE `History` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -102,7 +101,7 @@ CREATE TABLE `Treasure` (
 
 LOCK TABLES `Treasure` WRITE;
 /*!40000 ALTER TABLE `Treasure` DISABLE KEYS */;
-INSERT INTO `Treasure` VALUES (1,'What is my name?','Suyog','Treasure 1',-105.04998169999999,40.0502623,100,'suso4455@colorado.edu',NULL);
+INSERT INTO `Treasure` VALUES (1,'What is my name?','Suyog','Treasure 1',-105.2627383,40.005734499999996,100,'suso4455@colorado.edu',NULL);
 /*!40000 ALTER TABLE `Treasure` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -142,4 +141,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-05 14:58:41
+-- Dump completed on 2017-12-05 15:59:53
