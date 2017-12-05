@@ -27,7 +27,7 @@ $(document).ready(() => {
                 type: "POST"
             }).done((result) => {
                 $('div#answerForm').html(result);
-                console.log(result);
+                // console.log(result);
             }).fail((err) => {
                 console.log(err);
             });

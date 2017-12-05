@@ -44,7 +44,7 @@ CREATE TABLE Treasure (
 );
 
 CREATE TABLE History (
-	id int PRIMARY KEY,
+	id int NOT NULL auto_increment PRIMARY KEY,
 	solver_username varchar(100),
 	treasure_id int REFERENCES Treasure (id),
 	hint_id int REFERENCES Hint (id)

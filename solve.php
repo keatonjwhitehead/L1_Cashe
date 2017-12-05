@@ -8,6 +8,7 @@ if (!currentUser()) {
     exit;
 }
 
+echo "<h1>" . $_GET['correct'] . "</h1>";
 
 ?>
 

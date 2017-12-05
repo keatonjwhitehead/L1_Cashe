@@ -2,6 +2,11 @@
 
 include "header.php";
 include 'hint/hintFunctions.php';
+$username = currentUser();
+if (!$username) {
+    header("Location: /");
+    exit;
+}
 if ($_POST['lat'] && $_POST['long']){
     $lat = $_POST['lat'];
     $long = $_POST['long'];
@@ -10,25 +15,8 @@ if ($_POST['lat'] && $_POST['long']){
     $lower_lat = $lat - 0.15;
     $upper_long = $long + 0.15;
     $lower_long = $long - 0.15;
-    $username = currentUser();
-    $hint = $link->query("Select * from Hint where locat_lat between $lower_lat AND $upper_lat AND locat_long between $lower_long AND $upper_long ");
+    $hint = $link->query("Select * from Hint where locat_lat between $lower_lat AND $upper_lat AND locat_long between $lower_long AND $upper_long AND creator_username!='$username'");
     $treasure = $link->query("Select * from Treasure where locat_lat between $lower_lat AND $upper_lat AND locat_long between $lower_long AND $upper_long");
-
-
-
-    /* $hint = $link->query("Select * from Hint"); */
-    /* $treasure = $link->query("Select * from Treasure"); */
-    /* $history = $link->query("Select * from History"); */
-
-    // $displayTreasure = array();
-    // if ($treasure->num_rows > 0) {
-    // 	while ($row = $treasure->fetch_assoc()) {
-    // 		echo var_dump($row);
-    // 		$id = $row['id'];
-    // 		$hints = $link->query("Select hint_id from History where solver_username=$username AND treasure_id=$id");
-    // 		echo $hints->num_rows;
-    // 	}
-    // }
 
     $displayHint = array();
     if ($hint->num_rows > 0) {
@@ -50,22 +38,39 @@ if ($_POST['lat'] && $_POST['long']){
                 $id = true;
             }
             if ($id) {
-                hintSolve($row);
+                $id = $row['id'];
+                $solved = $link->query("Select * from History where hint_id=$id");
+                if ($solved->num_rows > 0) {
+                    hintSolved($row);
+                } else {
+                    hintSolve($row);
+                }
             }
         }
     }
 }else if ($_POST['hint-id-i'] && $_POST['hint-answer-s']) {
     $answer = $_POST['hint-answer-s'];
     $id = $_POST['hint-id-i'];
-    $stmt = $link->prepare("Select * from Hint where id=$id and answer=?");
+    $points = $_POST['hint-points-i'];
+    $stmt = $link->prepare("Select * from Hint where id=$id AND answer=?");
     $stmt->bind_param("s", $answer);
     $stmt->execute();
-	$stmt->bind_result($existing);
-	$stmt->fetch();
-    if ($existing) {
-        // write to the history
-        echo "Solved!!";
-    }else{
-        // better luck next time
+    if ($stmt->fetch()) {
+        $stmt->close();
+        $query = "INSERT INTO History (hint_id, solver_username, treasure_id) VALUES ($id, '$username', NULL)";
+        $link->query($query);
+        if ($link->error) {
+            echo $query . " did not work! <br />";
+            echo $link->error;
+        } else {
+            // Add points to the user since they go it right...
+            $query = "Update User set points=points+$points where username='$username'";
+            $link->query($query);
+            header("Location: /solve.php");
+        }
+    } else {
+        $stmt->close();
+        header("Location: /solve.php?correct=Wrong%20Answer%20For%20Hint%20ID%20$id");
     }
+    exit;
 }
