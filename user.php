@@ -53,6 +53,7 @@ $treasures->close();
 ?>
 </div>
 
+
 <?php
 include "footer.php";
 /* End of file user.php */

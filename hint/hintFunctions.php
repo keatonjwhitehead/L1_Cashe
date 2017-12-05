@@ -75,3 +75,25 @@ function hintForm($row){
 <?php
         }
 }
+
+
+
+function hintSolve($row){
+?>
+<div style="padding: 20px; border: 1px solid black; margin-top: 20px;">
+    <form action="/verify.php" method="post">
+        <label for="hint-id-i">Hint ID:</label>
+        <input type="text" class="form-control" value="<?php echo $row['id'];?>" readonly name="hint-id-i"  style="margin-bottom:4%">
+        <label for="hint-treasure_id-i">Tresure ID:</label>
+        <input type="text" class="form-control" value="<?php echo $row['treasure_id'];?>" readonly name="hint-treasure_id-i"  style="margin-bottom:4%">
+        <label for="hint-question-s">Question:</label>
+        <input type="text" class="form-control" value="<?php echo $row['question'];?>" name="hint-question-s"  style="margin-bottom:4%" readonly>
+        <label for="hint-answer-s">Answer:</label>
+        <input type="text" class="form-control" name="hint-answer-s"  style="margin-bottom:4%">
+        <center>
+            <button type="submit" class="btn btn-default" style="background:#69f0ae"><strong>Create</strong></button>
+        </center>
+    </form>
+</div>
+    <?php
+}
