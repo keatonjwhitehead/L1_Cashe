@@ -62,7 +62,7 @@ CREATE TABLE `History` (
   `treasure_id` int(11) DEFAULT NULL,
   `hint_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -129,7 +129,7 @@ CREATE TABLE `User` (
 
 LOCK TABLES `User` WRITE;
 /*!40000 ALTER TABLE `User` DISABLE KEYS */;
-INSERT INTO `User` VALUES (1,'suso4455@colorado.edu','$2y$10$Zht6GHv22tlUkMuI7MqMg.SvZC6omHYNVWpQlW.K1ebR3e6wJUWMm',0),(2,'suyog.soti@gmail.com','$2y$10$6mI3JF52rdWAiKVYL63YX.FqXyTVTxfYz1g97H8qrE1c/JFFLoH1G',0);
+INSERT INTO `User` VALUES (1,'suso4455@colorado.edu','$2y$10$Zht6GHv22tlUkMuI7MqMg.SvZC6omHYNVWpQlW.K1ebR3e6wJUWMm',0),(2,'suyog.soti@gmail.com','$2y$10$6mI3JF52rdWAiKVYL63YX.FqXyTVTxfYz1g97H8qrE1c/JFFLoH1G',10);
 /*!40000 ALTER TABLE `User` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -142,4 +142,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-05 12:14:09
+-- Dump completed on 2017-12-05 14:58:41

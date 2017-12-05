@@ -130,4 +130,27 @@ function treasureForm($row)
 	}
 	/* echo "<div style='width: 100px; height: 300px;'></div>"; */
 }
+
+function treasureSolve($row){
+?>
+<div style="padding: 20px; border: 1px solid black; margin-top: 20px;">
+	<center>
+		<h1><?php echo $row['treasurename']; ?></h1>
+	</center>
+	<form action="/verify.php" method="post">
+		<label for="treasure-id-i">Hint ID:</label>
+		<input type="text" class="form-control" value="<?php echo $row['id'];?>" readonly name="treasure-id-i"  style="margin-bottom:4%">
+		<label for="treasure-points-i">Rewards:</label>
+		<input type="text" class="form-control" value="<?php echo $row['points'];?>" name="treasure-points-i"  style="margin-bottom:4%" readonly>
+		<label for="treasure-question-s">Question:</label>
+		<input type="text" class="form-control" value="<?php echo $row['question'];?>" name="treasure-question-s"  style="margin-bottom:4%" readonly>
+		<label for="treasure-answer-s">Answer:</label>
+		<input type="text" class="form-control" name="treasure-answer-s"  style="margin-bottom:4%">
+		<center>
+			<button type="submit" class="btn btn-default" style="background:#69f0ae"><strong>Submit</strong></button>
+		</center>
+	</form>
+</div>
+	<?php
+}
 /* End of file treasureFunctions.php */
