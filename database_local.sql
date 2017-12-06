@@ -1,9 +1,10 @@
+
 #Started by Jason Lubrano
 #30 October 2017
 
-DROP database IF EXISTS heroku_94dcaf97d2ccea3;
-CREATE database heroku_94dcaf97d2ccea3;
-use heroku_94dcaf97d2ccea3;
+DROP database IF EXISTS l1_cashe;
+CREATE database l1_cashe;
+use l1_cashe;
 CREATE TABLE User (
 	id int NOT NULL auto_increment PRIMARY KEY,
 	username varchar(100) NOT NULL, #username
