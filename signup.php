@@ -7,10 +7,11 @@ myHeader("Sign Up");
 
 if (isset($_POST['email']) && isset($_POST["rpwd"])) {
 	if (createUser($link, $_POST['email'], $_POST['rpwd'])) {
+		/* echo $_POST['email']; */
 		loginUser($link, $_POST['email'], $_POST['rpwd']);
 		header("Location: /");
 	} else {
-		echo "The user could not be created successfully! <br />";
+		echo "The user could not be created successfully! The username might already be in our database. <br />";
 	}
 } else {
 ?>

@@ -3,16 +3,11 @@
 // 	Website Name: Catch Me If You Can
 // 	Page: Sign Up
 session_start();
-/*
- *
- * Connection.php has your connection info and should never be pushed to the remote/public server
- * the following should be defined in your connection.php
- * $server = "127.0.0.1";
- * $user = "root";
- * $passwd = "lol";
- * $dbName = "l1_cashe";
- *
- * */
+
+$user = "bb86b6fc52433e";
+$passwd = "e9e79319";
+$dbName = "heroku_94dcaf97d2ccea3";
+$server = "us-cdbr-iron-east-05.cleardb.net";
 include 'connection.php';
 
 // We will always establish a connection here with the database so the connection can be used in the function.php
