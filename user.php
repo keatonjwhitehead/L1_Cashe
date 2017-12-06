@@ -4,6 +4,11 @@ include 'header.php';
 myHeader(currentUser());
 include 'treasure/treasureFunctions.php';
 include 'hint/hintFunctions.php';
+$username = currentUser();
+if (!$username) {
+    header("Location: /");
+    exit;
+}
 
 if ($_POST['treasure-id-i']) {
     // update treasure using sql bindings
@@ -21,6 +26,26 @@ if ($_POST['treasure-id-i']) {
 
 
 ?>
+
+<div id="userInfo">
+<?php $user = $link->query("Select * from User where username='$username'"); ?>
+<?php $user = $user->fetch_assoc(); ?>
+<table>
+    <tr>
+        <td>Username</td>
+	<td>Points</td>
+    </tr>
+    <tr>
+	<td><?php echo $username; ?></td>
+	<td><?php echo $user['points']; ?></td>
+    </tr>
+</table>
+</div>
+<style>
+td, tr {
+    padding: 10px;
+}
+</style>
 
 <div>
     <center>
