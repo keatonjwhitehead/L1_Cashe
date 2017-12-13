@@ -4,6 +4,7 @@ include 'header.php';
 myHeader(currentUser());
 include 'treasure/treasureFunctions.php';
 include 'hint/hintFunctions.php';
+
 $username = currentUser();
 if (!$username) {
     header("Location: /");
