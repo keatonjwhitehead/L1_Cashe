@@ -79,9 +79,8 @@ function myHeader($title){
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<!-- Logo
-				<a class="navbar-brand" href="#"><img src="" class="img-rounded" width="43" height="33"></img></a>
-				-->
+				<!-- Logo -->
+				<a class="navbar-brand" href="#"><img src="LogoNew.png" class="img-rounded" width="43" height="33"></img></a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
@@ -115,9 +114,9 @@ function myHeader($title){
 	</nav>
 
 	<!-- Title -->
-	<div class="jumbotron" style="background:#13c6ba; color:white">
-		<div class="container text-center">
-			<h1>Catch Me If You Can</h1>
+	<div class="jumbotron">
+		<div class="container">
+			<img id="Name" class="img-responsive center-block" style="height:65%;" src="NameLandscape.png" alt="Name">
 		</div>
 	</div>
 
