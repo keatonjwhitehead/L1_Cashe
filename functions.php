@@ -11,6 +11,7 @@ function createUser($link, $username, $password){
 	$stmt->execute();
 	$stmt->bind_result($existing);
 	$stmt->fetch();
+<<<<<<< HEAD
 	$stmt->close();
 	if ($existing) {
 		return false;
@@ -19,6 +20,23 @@ function createUser($link, $username, $password){
 		// Storing the hash of the password... never store the password as plain text
 		$stmt->bind_param("ss", $username, password_hash("$password", PASSWORD_DEFAULT));
 		$stmt->execute();
+=======
+	if ($existing) {
+		$stmt->close();
+		return false;
+	} else {
+		$stmt->close();
+		$stmt = $link->prepare("Insert INTO User (username, password, points) Values (?, ?, 0)");
+		// Storing the hash of the password... never store the password as plain text
+		$stmt->bind_param("ss", $username, password_hash("$password", PASSWORD_DEFAULT));
+		if (!$stmt->execute()) {
+			echo "$username could not be created because the sql statement could not be executed! <br />";
+			echo "$stmt->error <br />";
+			$stmt->close();
+			return false;
+		}
+		$stmt->close();
+>>>>>>> 87f31964beff33be96d1108dc20b1b7093914abd
 		return true;
 	}
 }
@@ -54,8 +72,12 @@ function logoutUser() {
 	exit;
 }
 
+<<<<<<< HEAD
 function userObjects($link, $table)
 {
+=======
+function userObjects($link, $table) {
+>>>>>>> 87f31964beff33be96d1108dc20b1b7093914abd
 	$username = currentUser();
 	if (!$username) {
 		header("Location: /");
@@ -74,8 +96,12 @@ function userObjects($link, $table)
  * $table name of the table
  * $object is a dictionary arr with table-collumName-valTypeLetter as the keys
  */
+<<<<<<< HEAD
 function updateObject($link, $table, $object)
 {
+=======
+function updateObject($link, $table, $object) {
+>>>>>>> 87f31964beff33be96d1108dc20b1b7093914abd
 	// How this works is really funny
 	// update the table with the rows
 	// the client will never type the table to upload so its okey not to bind that
@@ -103,6 +129,10 @@ function updateObject($link, $table, $object)
 	if (!$stmt->execute()) {
 		echo "<h3>The $table could not be updated!</h3>";
 	}
+<<<<<<< HEAD
+=======
+	$stmt->close();
+>>>>>>> 87f31964beff33be96d1108dc20b1b7093914abd
 }
 
 function createObject($link, $table, $object){
@@ -136,8 +166,14 @@ function createObject($link, $table, $object){
 	array_unshift($object, $types);
 	call_user_func_array(array($stmt, 'bind_param'), $object);
 	if (!$stmt->execute()) {
+<<<<<<< HEAD
 		echo "<h3>The $table could not be updated!</h3>";
 	}
+=======
+		echo "<h3>The $table could not be created!</h3>";
+	}
+	$stmt->close();
+>>>>>>> 87f31964beff33be96d1108dc20b1b7093914abd
 }
 
 // for later when we want to make sure that we calculated the distance between two long and lat points
@@ -157,4 +193,7 @@ function distance($lat1, $lon1, $lat2, $lon2, $unit) {
 		return $miles;
 	}
 }
+<<<<<<< HEAD
 	
+=======
+>>>>>>> 87f31964beff33be96d1108dc20b1b7093914abd
