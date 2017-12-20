@@ -76,5 +76,26 @@ Keaton will be the middle man that will work both with the frontend and backend 
 Technologies and Functionalities:
 In addition to the HTML, CSS and JavaScript required for the front end development, we will also be utilizing bootstrap, a front end framework, on the project. In the backend, we will utilize Django as the python framework. It is a model view controller framework that will hold our hands as we begin this project, which is a good thing because not all of us are familiar with web development. In addition to Django, we will be using mongoDB as our database because of its relational framework. The relational database framework will be particularly helpful in the data navigation later on in the project.
 
+Running:
+We initially deployed our application using Heroku at the address
+http://l1cashe.herokuapp.com/. In fact, we used this functional website during our
+product demonstration for milestone 6; however, we have since taken down the
+application, as Heroku wanted to start charging us. As a result, one can now run our app
+by cloning the repo. Once the repository is cloned, it must be run through a virtual host
+using an apache server. The set up for that depends on the operating system of the
+user. Afterwards, the user must create a database name “l1_cashe” through a mysql
+database, and run the database_local.sql file to create the tables. In addition to this, the
+user must also create a connection.php file that defines the following variables.
+$user = "root";
+$passwd = "password";
+$dbName = "l1_cashe";
+$server = "localhost";
+Once this has been done, the website will be ready at wherever the virtual host was set
+up
+
+
 Testing:
 To run the UATs we tried several methods. We tried testing our website with various methods. The first was to do Selenium, but we realized it isn’t capable of working on the VM provided by CU. So with that one not applicable, the second method we tried was to use Katalon for windows. This was a pretty good software, but it was rough to learn on such short notice. It took a long time to learn, a lot longer than I want to admit, but for what I got working I was impressed with myself. Learning how to set up a virtual host with Katalon was also really difficult. It took a long time to get it done, and frankly it took a lot longer than it was supposed to. And frankly, all that I was able to do was open the webpage and write in the blank. So I ditched that and went straight with brute force methods where we found some bugs. After bug fixes then we were able to go through the rest of the testing to make sure the website worked properly.
+
+Repository Structure:
+All of the main code for our application is on the master branch. Throughout developement we initially committed our code to the developement branch by means of pull requests. In addition, many of the .svg images were uploaded to blbi0875-patch-1. Ultimately, all the code that was necessary for application functionality was committed to master.
