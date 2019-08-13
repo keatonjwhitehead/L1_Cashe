@@ -10,6 +10,10 @@
 
 
 <?php
+<<<<<<< HEAD
+mysqli_close($link);
+=======
 $link->close();
+>>>>>>> 87f31964beff33be96d1108dc20b1b7093914abd
 
 /* End of file footer.php */

@@ -3,6 +3,15 @@
 include 'header.php';
 myHeader(currentUser());
 include 'treasure/treasureFunctions.php';
+<<<<<<< HEAD
+
+if ($_POST['treasure-id-i']) {
+	// update treasure using sql bindings
+	updateObject($link, "Treasure", $_POST);
+} elseif ($_POST['treasure-treasurename-s'] && $_POST['treasure-points-i']) {
+	// create new treasure
+	createObject($link, "Treasure", $_POST);
+=======
 include 'hint/hintFunctions.php';
 
 $username = currentUser();
@@ -23,11 +32,32 @@ if ($_POST['treasure-id-i']) {
 } else if($_POST['hint-hintname-s'] && $_POST['hint-points-i']){
     // create new hint
     createObject($link, "Hint", $_POST);
+>>>>>>> 87f31964beff33be96d1108dc20b1b7093914abd
 }
 
 
 ?>
 
+<<<<<<< HEAD
+<div class="col-sm-8">
+<center>
+	<h1 class="byUser" id="hints" style="margin-bottom:8%">Hints</h1>
+</center>
+<center>
+	<h1 class="byUser" id="hints" style="margin-bottom:8%">Treasure</h1>
+</center>
+<?php
+$result = userObjects($link, "Treasure");
+if ($result->num_rows > 0) {
+	while($row = $result->fetch_assoc()) {
+		treasureForm($row);
+	}
+}
+treasureForm(NULL);
+?>
+
+</div>
+=======
 <div id="userInfo">
 <?php $user = $link->query("Select * from User where username='$username'"); ?>
 <?php $user = $user->fetch_assoc(); ?>
@@ -80,6 +110,7 @@ $treasures->close();
 </div>
 
 
+>>>>>>> 87f31964beff33be96d1108dc20b1b7093914abd
 <?php
 include "footer.php";
 /* End of file user.php */

@@ -7,6 +7,26 @@ myHeader("Sign Up");
 
 if (isset($_POST['email']) && isset($_POST["rpwd"])) {
 	if (createUser($link, $_POST['email'], $_POST['rpwd'])) {
+<<<<<<< HEAD
+		loginUser($link, $_POST['email'], $_POST['rpwd']);
+		header("Location: /");
+	} else {
+		echo "The user could not be created successfully! <br />";
+	}
+} else {
+?>
+		<div class="row content">
+			<div class="col-sm-2 sidenav">
+				<p><a href="#" style="color:blue">Rules</a></p>
+				<p><a href="#" style="color:blue">Feedback</a></p>
+			</div>
+			<div class="col-sm-8">
+				<center>
+					<h1 style="margin-bottom:8%">Sign Up!</h1>
+				</center>
+				<form action="signup.php" method="post">
+					<div class="col-sm-4 col-sm-offset-4">
+=======
 		/* echo $_POST['email']; */
 		loginUser($link, $_POST['email'], $_POST['rpwd']);
 		header("Location: /");
@@ -20,6 +40,7 @@ if (isset($_POST['email']) && isset($_POST["rpwd"])) {
 			<form action="signup.php" method="post">
 				<div class="panel panel-default col-sm-4 col-sm-offset-4" style="background:rgba(0,188,212,0.1)">
 					<div class="form-group" style="margin-top:10%">
+>>>>>>> 87f31964beff33be96d1108dc20b1b7093914abd
 						<label for="email">Email:</label>
 						<input type="email" class="form-control" id="email" placeholder="Enter email" name="email"  style="margin-bottom:4%">
 					</div>
@@ -37,8 +58,13 @@ if (isset($_POST['email']) && isset($_POST["rpwd"])) {
 							<button type="submit" class="btn btn-danger">Cancel</button>
 						</center>
 					</div>
+<<<<<<< HEAD
+				</form>
+			</div>
+=======
 				</div>
 			</form>
+>>>>>>> 87f31964beff33be96d1108dc20b1b7093914abd
 		</div>
 <?php
 }

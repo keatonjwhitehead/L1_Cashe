@@ -3,6 +3,20 @@
 // 	Website Name: Catch Me If You Can
 // 	Page: Sign Up
 session_start();
+<<<<<<< HEAD
+/*
+ *
+ * Connection.php has your connection info and should never be pushed to the remote/public server
+ * the following should be defined in your connection.php
+ * $server = "127.0.0.1";
+ * $user = "root";
+ * $passwd = "lol";
+ * $dbName = "l1_cashe";
+ *
+ * */
+include 'connection.php';
+
+=======
 
 $user = "bb86b6fc52433e";
 $passwd = "e9e79319";
@@ -10,6 +24,7 @@ $dbName = "heroku_94dcaf97d2ccea3";
 $server = "us-cdbr-iron-east-05.cleardb.net";
 include 'connection.php';
 
+>>>>>>> 87f31964beff33be96d1108dc20b1b7093914abd
 // We will always establish a connection here with the database so the connection can be used in the function.php
 // and can be closed in the footer.php
 $link = new mysqli($server, $user, $passwd, $dbName);
@@ -114,9 +129,15 @@ function myHeader($title){
 	</nav>
 
 	<!-- Title -->
+<<<<<<< HEAD
+	<div class="jumbotron" style="background:#13c6ba; color:white">
+		<div class="container text-center">
+			<h1>Catch Me If You Can</h1>
+=======
 	<div class="jumbotron">
 		<div class="container">
 			<img id="Name" class="img-responsive center-block" style="height:65%;" src="NameLandscape.png" alt="Name">
+>>>>>>> 87f31964beff33be96d1108dc20b1b7093914abd
 		</div>
 	</div>
 
